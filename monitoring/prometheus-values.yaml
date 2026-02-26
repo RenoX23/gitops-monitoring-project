@@ -1,0 +1,39 @@
+prometheus:
+  prometheusSpec:
+    scrapeInterval: 15s
+    retention: 2h
+    resources:
+      requests:
+        memory: "400Mi"
+        cpu: "200m"
+      limits:
+        memory: "600Mi"
+        cpu: "400m"
+
+grafana:
+  enabled: true
+  adminPassword: "gitops123"
+  resources:
+    requests:
+      memory: "100Mi"
+      cpu: "100m"
+    limits:
+      memory: "200Mi"
+      cpu: "200m"
+
+alertmanager:
+  enabled: true
+  alertmanagerSpec:
+    resources:
+      requests:
+        memory: "50Mi"
+        cpu: "50m"
+      limits:
+        memory: "100Mi"
+        cpu: "100m"
+
+nodeExporter:
+  enabled: true
+
+kubeStateMetrics:
+  enabled: true
