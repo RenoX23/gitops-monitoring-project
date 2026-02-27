@@ -74,14 +74,14 @@ gitops-monitoring-project/
 ![ArgoCD UI](screenshots/argoui.png)
 
 ### ArgoCD — Pod Health Status
-![Pod Health ArgoCD](screenshots/podhealthargo.png)
+![Pod Health ArgoCD](screenshots/podhealth.png)
 
 ### Grafana UI — Dashboard Overview
 ![Grafana UI](screenshots/grafanaui.png)
 
 ### Grafana — Available Dashboard Templates
 ![Grafana Templates 1](screenshots/grafanatemplates1.png)
-![Grafana Templates 2](screenshots/grafanatemples2.png)
+![Grafana Templates 2](screenshots/grafanatemplates2.png)
 
 ### Grafana — CPU Metrics (gitops-app namespace)
 ![CPU Metrics](screenshots/cpumetrics.png)
