@@ -47,24 +47,65 @@ Alertmanager fires alerts on anomalies
 ```
 gitops-monitoring-project/
 ├── app/
-│   ├── app.py                  # Flask app with Prometheus metrics endpoints
-│   ├── Dockerfile              # Container image definition
-│   └── requirements.txt        # Python dependencies
+│   ├── app.py                   # Flask app with Prometheus metrics endpoints
+│   ├── Dockerfile               # Container image definition
+│   └── requirements.txt         # Python dependencies
 ├── k8s/
-│   ├── deployment.yaml         # Kubernetes deployment with health checks
-│   ├── service.yaml            # NodePort service exposing the app
-│   └── namespace.yaml          # Namespace definition
+│   ├── deployment.yaml          # Kubernetes deployment with health checks
+│   ├── service.yaml             # NodePort service exposing the app
+│   └── namespace.yaml           # Namespace definition
 ├── monitoring/
-│   └── prometheus-values.yaml  # Helm values for kube-prometheus-stack
+│   └── prometheus-values.yaml   # Helm values for kube-prometheus-stack
 ├── alerting/
 │   └── alertmanager-config.yaml # Custom PrometheusRule definitions
 ├── terraform/
-│   └── main.tf                 # IaC for namespaces and config maps
+│   └── main.tf                  # IaC for namespaces and config maps
 ├── argocd/
-│   └── application.yaml        # ArgoCD Application manifest
-├── screenshots/                # Demo and verification screenshots
+│   └── application.yaml         # ArgoCD Application manifest
+├── screenshots/                 # Demo and verification screenshots
 └── README.md
 ```
+
+---
+
+## Screenshots
+
+### ArgoCD UI — Application Synced and Healthy
+![ArgoCD UI](screenshots/argoui.png)
+
+### ArgoCD — Pod Health Status
+![Pod Health ArgoCD](screenshots/podhealthargo.png)
+
+### Grafana UI — Dashboard Overview
+![Grafana UI](screenshots/grafanaui.png)
+
+### Grafana — Available Dashboard Templates
+![Grafana Templates 1](screenshots/grafanatemplates1.png)
+![Grafana Templates 2](screenshots/grafanatemples2.png)
+
+### Grafana — CPU Metrics (gitops-app namespace)
+![CPU Metrics](screenshots/cpumetrics.png)
+
+### Grafana — Node Metrics
+![Node Metrics](screenshots/nodemetrics.png)
+
+### Grafana — Node Usage
+![Node Usage](screenshots/nodeusage.png)
+
+### Prometheus — Alert Rules Registered
+![Prometheus Alert 0](screenshots/promethuesalert0.png)
+
+### Prometheus — Alerts Pending
+![Prometheus Alert 1](screenshots/promethuesalert1.png)
+
+### Prometheus — Alerts Firing
+![Prometheus Alert 2](screenshots/promethuesalert2.png)
+
+### Stress Test — Load Simulation
+![Stress Test](screenshots/stresstest.png)
+
+### Terraform — Infrastructure as Code Applied
+![Terraform](screenshots/terraform.png)
 
 ---
 
@@ -193,7 +234,7 @@ git add . && git commit -m "scale deployment" && git push origin main
 ```
 
 ### Alert Firing Demo
-Simulate a production outage by scaling the app to 0. Watch Prometheus detect it and fire the `AppEndpointDown` alert.
+Simulate a production outage by scaling the app to 0. Watch Prometheus detect it and fire the alert automatically.
 
 ```bash
 kubectl scale deployment gitops-app -n gitops-app --replicas=0
@@ -217,6 +258,6 @@ kubectl scale deployment gitops-app -n gitops-app --replicas=3
 
 ## Author
 
-**Renold Stephen R**  
-M.Tech Computer Science — Christ University, Bangalore  
+**Renold Stephen R**
+M.Tech Computer Science — Christ University, Bangalore
 [GitHub](https://github.com/RenoX23) | [LinkedIn](https://linkedin.com/in/renoldstephen)
